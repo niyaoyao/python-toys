@@ -24,7 +24,7 @@ class ScriptGenerator(object):
         self.should_generate_class = self.class_name != None
         filepath = "{}{}".format(self.script_filename, '.py')
         script_path = os.path.join(script_save_directory, filepath) if script_save_directory != None else filepath
-        self.script_path = script_path if isinstance(script_path, str) and len(class_name) > 0 else filepath
+        self.script_path = script_path if isinstance(script_path, str) and isinstance(class_name, str) and len(class_name) > 0 else filepath
         
     def write_script_file(self, script_path, script_contents):
         with open(script_path, 'w') as script_file:
